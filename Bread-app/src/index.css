@@ -37,7 +37,7 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 50vh;
+  max-height: 45vh;
   
 }
 
@@ -52,21 +52,35 @@ html {
 #login-form{
   display: flex;
   justify-content: space-evenly;
-  border: 2px solid black;
+  align-items: center;
+  border-left: 2px solid black;
+  height: 280px;
+  padding: 25px;
 }
 
-#login-form > input{
-  height: 24px;
+.login-formText{
+  font-size: 2.4rem;
 }
 
-#login-form > input:focus{
+.login-inputContainer{
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+#username, #password, #confirmPassword{
   outline: none;
 }
 
 .login-text{
-  height: 25vh;
+  height: 200px;
   font-size: 2.5rem;
-  padding: 25px;
+  padding: 25px 25px 0px 25px;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
   text-align: center;
 }
 
@@ -90,4 +104,33 @@ html {
   font-weight: 700;
   border: 1px solid black;
   border-radius: 5px;
+}
+
+.login-bottomText{
+  font-size: 1.7rem;
+}
+
+@media (max-width: 700px){
+  .login-img{
+    height: 0px;
+    width: 0px;
+  }
+
+  .login-contentContainer{
+    width: 100vw;
+  }
+
+  .login-formText{
+    font-size: 2.1rem;
+    padding-right: 20px;
+  }
+
+  .login-bottomContent{
+    align-items: center;
+  }
+
+  .login-button{
+    padding: 20px 30px;
+  }
+
 }

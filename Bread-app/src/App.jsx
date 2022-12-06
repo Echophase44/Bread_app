@@ -16,28 +16,36 @@ function App() {
     <div className='login-formContainer'>
       <p className='login-formHeader'>Bake. Eat. Revise.</p>
       <form id="login-form" action="">
-
-        <input 
-        type="text"
-        placeholder='Username' 
-        />
+        <span className='login-formText'>Create your Account:</span>
+          
+          <div className='login-inputContainer'>
+          <input 
+          type="text"
+          placeholder='Username'
+          id='username'
+          />
+          
+          
+          <input 
+          type="text"
+          placeholder='Password' 
+          name="" 
+          id="password" />
+          
+          <input 
+          type="text"
+          placeholder='Confirm Password' 
+          name="" 
+          id="confirmPassword" />
+          </div>
+          
         
-        <input 
-        type="text"
-        placeholder='Password' 
-        name="" 
-        id="" />
         
-        <input 
-        type="text"
-        placeholder='Confirm Password' 
-        name="" 
-        id="" />
       </form>
     </div>
     <div className='login-bottomContent'>
       <button className='login-button'>Create Account</button>
-      <p>Already have an account? <span>Login</span></p>
+      <p className='login-bottomText'>Already have an account? <span>Login</span></p>
     </div>
   </div>
  </div>
