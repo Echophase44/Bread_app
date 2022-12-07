@@ -7,46 +7,53 @@ function App() {
  return (
  <div className='login-container'>
   <img className='login-img' src={bread} alt="Bread" />
+  
   <div className='login-contentContainer'>
-    <div className='login-text'>
+
+    <section className='login-text'>
       <p>Start with a simple receipe and record the changes as you go.</p>
       <img className='login-logo' src={logo} alt="Logo" />
-    </div>
+    </section>
     
-    <div className='login-formContainer'>
+    <section className='login-formContainer'>
       <p className='login-formHeader'>Bake. Eat. Revise.</p>
       <form id="login-form" action="">
-        <span className='login-formText'>Create your Account:</span>
+      <span className='login-formText'>Create Account:</span>
           
           <div className='login-inputContainer'>
-          <input 
-          type="text"
-          placeholder='Username'
-          id='username'
-          />
+            <div className='login-relativeInput'>
+              <input 
+                type="email"
+                id='username'
+              />
+              <label className='login-label' htmlFor="username">Username</label>
+            </div>
           
+            <div className='login-relativeInput'>
+              <input 
+                type="text" 
+                id='password'
+              />
+              <label className='login-label' htmlFor="password">Password</label>
+            </div>
+
           
-          <input 
-          type="text"
-          placeholder='Password' 
-          name="" 
-          id="password" />
-          
-          <input 
-          type="text"
-          placeholder='Confirm Password' 
-          name="" 
-          id="confirmPassword" />
+            <div className='login-relativeInput'>
+              <input 
+                type="text" 
+                name="" 
+                id="confirmPassword" 
+              />
+              <label className='login-label' htmlFor="confirmPassword">Confrim Password</label>
+            </div>
           </div>
-          
-        
-        
       </form>
-    </div>
-    <div className='login-bottomContent'>
+    </section>
+    
+    <section className='login-bottomContent'>
       <button className='login-button'>Create Account</button>
-      <p className='login-bottomText'>Already have an account? <span>Login</span></p>
-    </div>
+      <p className='login-bottomText'>Don't want to create an account? <span>Login</span></p>
+    </section>
   </div>
  </div>
  )
