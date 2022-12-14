@@ -1,6 +1,6 @@
 export const userData = [
   {
-    email: "Henry@aol.com",
+    email: "",
     password: "",
     username: "",
   },

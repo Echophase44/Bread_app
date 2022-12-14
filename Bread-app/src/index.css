@@ -20,14 +20,14 @@ html {
 
 .login-img{
   height: auto;
-  width: 40vw;
+  width: 30vw;
 }
 
 .login-contentContainer{
   display: flex;
   flex-direction: column;
   background-image: linear-gradient(to right, #fbaf59,#f0b480);
-  width: 60vw;
+  width: 70vw;
 }
 
 .login-formContainer{
@@ -38,7 +38,11 @@ html {
   flex-direction: column;
   justify-content: space-evenly;
   max-height: 45vh;
-  
+}
+
+.login-Title{
+  font-weight: 500;
+  font-size: 3rem;
 }
 
 .login-formHeader{
@@ -47,6 +51,7 @@ html {
   text-align: left;
   letter-spacing: .8rem;
   max-width: 420px;
+  font-weight: 500;
 }
 
 #login-form{
@@ -63,11 +68,12 @@ html {
   font-size: 2.4rem;
   letter-spacing: .2rem;
   padding-right: 10px;
+  margin-bottom: -15px;
 }
 
 .login-inputContainer{
   display: flex;
-  gap: 15px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
@@ -99,7 +105,7 @@ html {
 }
 
 .login-text{
-  height: 200px;
+  height: 30vh;
   font-size: 2.5rem;
   padding: 25px 25px 0px 25px;
   gap: 20px;
@@ -138,6 +144,7 @@ html {
 .login-button:hover{
   cursor: pointer;
   background-color: #bebebf;
+  box-shadow: 1px 6px 5px -4px rgba(71, 71, 71, 0.75);
 }
 
 .login-bottomText{
@@ -158,6 +165,10 @@ html {
   .login-img{
     height: 0px;
     width: 0px;
+  }
+
+  .login-Title{
+    font-size: 2.5rem;
   }
 
   .login-contentContainer{
