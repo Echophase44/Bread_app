@@ -1,7 +1,6 @@
 import React from "react"
 import bread from "../public/login-bread.jpg"
 import logo from "../public/breadLogo.png"
-import { useState } from "react"
 
 function LoginApp(props){
 

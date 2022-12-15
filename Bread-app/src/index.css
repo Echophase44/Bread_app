@@ -161,6 +161,9 @@ html {
   cursor: pointer;
 }
 
+/* ################## Mobile ################# */
+
+
 @media (max-width: 820px){
   .login-img{
     height: 0px;

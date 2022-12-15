@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import React from 'react'
 import LoginApp from "../components/LoginApp"
-import RecipeApp from "../components/RecipeApp"
-import {userData} from "../data/userdata"
+import RecipeApp from "../components/RecipePage"
 
 
 
@@ -35,7 +34,9 @@ function App() {
   <>
   {
     newUser.isCreated ?
-    <RecipeApp /> :
+    <RecipeApp 
+    user = {newUser}
+    /> :
     <LoginApp 
     userLogin = {setNewUser}
     handleChange = {handleChange}
