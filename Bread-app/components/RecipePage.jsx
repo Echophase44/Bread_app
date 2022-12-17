@@ -4,8 +4,7 @@ import '../src/RecipePage.css'
 import settingsIcon from "../public/setting.png"
 
 function RecipeApp(props){
-
-
+    
 
   console.log(props)
   return(

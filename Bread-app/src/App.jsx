@@ -29,6 +29,27 @@ function App() {
       }
     })
   }
+
+  const [recipes, setRecipes] = useState([])
+
+  function createNewRecipe(){
+    const newRecipe = {
+      id: "",
+      name: "test",
+      steps: [],
+      ingredients: {
+        Salt: "10g",
+        WholeWheatFlour: "150g",
+        BreadFlour: "350g",
+        Water: "250g",
+        Starter: "300g"
+      },
+      newVersion:{},
+    }
+    return{}
+  }
+  
+
   
  return (
   <>
