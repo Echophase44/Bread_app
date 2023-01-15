@@ -25,6 +25,7 @@ main{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
 }
 
 .recipe-listContainer{
@@ -34,11 +35,11 @@ main{
   height: 95vh;
   margin-left: 15px;
   box-shadow: 1px 6px 5px -4px rgba(71, 71, 71, 0.75);
+  overflow-y: auto;
 }
 
 .recipe-nav{
   display: flex;
-  border-bottom: 1px solid black;
   justify-content: space-between;
   padding: 10px;
 }
@@ -73,6 +74,54 @@ main{
 
 .recipe-recipes{
   background-color: #e1e2e6;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-recipeElement{
+  background-color: #acadad;
+  padding: 15px;
+  font-size: 1.4rem;
+  margin-bottom: 1px;
+  display: flex;
+  justify-content: space-between;
+  border-left: 1px solid black;
+}
+
+.recipe-elementBtnContainer{
+  display: flex;
+  gap: 10px;
+}
+
+.recipe-elementEditBtn{
+  border: none;
+  background-color: #acadad;
+}
+
+.recipe-elementDeleteBtn{
+  border: none;
+  background-color: #acadad;
+  height: 50px;
+  width: auto;
+}
+
+.recipe-elementEditImg{
+  max-width: 25px;
+}
+
+.recipe-elementDeleteImg{
+  max-width: 29px;
+  transition: .15s;
+}
+
+.recipe-elementEditImg:hover{
+  filter: invert(42%) sepia(30%) saturate(1080%) hue-rotate(88deg) brightness(90%) contrast(92%);
+  cursor: pointer;
+}
+
+.recipe-elementDeleteImg:hover{
+  filter: invert(34%) sepia(85%) saturate(1438%) hue-rotate(350deg) brightness(88%) contrast(97%);
+  cursor: pointer;
 }
 /* ################## Recipe Steps ################# */
 
