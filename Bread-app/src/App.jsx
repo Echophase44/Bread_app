@@ -21,6 +21,8 @@ function App() {
     localStorage.setItem("User", JSON.stringify(newUser))
   }, [newUser])
 
+  // Login Section
+
   function handleChange(event){
     setNewUser(prevUser => ({
       ...prevUser,
@@ -37,10 +39,11 @@ function App() {
     })
   }
 
+  // Recipe Section
+
   const [recipes, setRecipes] = useState([])
-  // const [currentRecipe, setCurrentRecipe] = useState(
-  //   (recipes[0] && recipes[0].id || "")
-  //   )
+  const [currentRecipe, setCurrentRecipe] = useState(recipes[0] && recipes[0].id || "")
+  
 
   function createNewRecipe(){
     const newRecipe = {
@@ -58,6 +61,8 @@ function App() {
     }
     setRecipes(prevRecipes => [...prevRecipes, newRecipe])
   }
+
+
   
   function deleteRecipe(id){
     return console.log(id)
@@ -73,6 +78,8 @@ function App() {
     recipes = {recipes}
     createNewRecipe = {createNewRecipe}
     deleteRecipe = {deleteRecipe}
+    currentRecipe = {currentRecipe}
+    setCurrentRecipe = {setCurrentRecipe}
     /> :
     <LoginApp 
     userLogin = {setNewUser}

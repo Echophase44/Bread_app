@@ -9,15 +9,22 @@ function RecipeApp(props){
 
 
   const recipeElements = props.recipes.map((elements, index) => (
-    <div className="recipe-recipeElement" key={elements.id}>
+    <div className={`recipe-recipeElement ${elements.id === props.currentRecipe ? "recipe-selectedRecipe" : ""}`} 
+    key={elements.id}
+    onClick={()=> props.setCurrentRecipe(elements.id)}
+    >
       <h3>Recipe {index + 1}</h3>
+      {elements.id === props.currentRecipe && 
       <div className="recipe-elementBtnContainer">
-        <button className="recipe-elementEditBtn"><img className="recipe-elementEditImg" src={editImg} alt="" /></button>
-        <button className="recipe-elementDeleteBtn" onClick={props.deleteRecipe(elements.id)}>
+        <button className="recipe-elementEditBtn">
+          <img className="recipe-elementEditImg" src={editImg} alt="" />
+        </button>
+        <button className="recipe-elementDeleteBtn" onClick={() => props.deleteRecipe(elements.id)}>
           <img className="recipe-elementDeleteImg" src={deleteImg} alt=""/>
-          
-          </button>
+        </button>
       </div>
+      }
+
     </div>
   ))
     
