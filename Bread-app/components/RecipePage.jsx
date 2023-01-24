@@ -17,16 +17,19 @@ function RecipeApp(props){
       {elements.id === props.currentRecipe && 
       <div className="recipe-elementBtnContainer">
         <button className="recipe-elementEditBtn">
-          <img className="recipe-elementEditImg" src={editImg} alt="" />
+          <img className="recipe-elementEditImg" src={editImg} alt="Edit recipe name" />
         </button>
         <button className="recipe-elementDeleteBtn" onClick={() => props.deleteRecipe(elements.id)}>
-          <img className="recipe-elementDeleteImg" src={deleteImg} alt=""/>
+          <img className="recipe-elementDeleteImg" src={deleteImg} alt="Delete Recipe"/>
         </button>
       </div>
       }
 
     </div>
   ))
+
+  console.log(props.recipes.steps)
+  // const recipeSteps = 
     
   
 
@@ -52,7 +55,7 @@ function RecipeApp(props){
         <div className="recipe-stepsContainer">
           <h2 className="recipe-stepsTitle">Recipe Steps</h2>
           <div className="recipe-stepsInfo">
-
+            {/* {recipeSteps} */}
           </div>
         </div>
       </section>

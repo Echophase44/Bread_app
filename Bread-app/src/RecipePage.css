@@ -87,6 +87,7 @@ main{
   justify-content: space-between;
   border-left: 1px solid black;
   align-items: center;
+  height: 65px;
 }
 
 .recipe-selectedRecipe{
@@ -106,7 +107,7 @@ main{
 .recipe-elementDeleteBtn{
   border: none;
   background-color: #996f3f;
-  height: 50px;
+  height: 40px;
   width: auto;
 }
 

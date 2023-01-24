@@ -21,7 +21,7 @@ function App() {
     localStorage.setItem("User", JSON.stringify(newUser))
   }, [newUser])
 
-  // Login Section
+  // Login Page
 
   function handleChange(event){
     setNewUser(prevUser => ({
@@ -39,7 +39,7 @@ function App() {
     })
   }
 
-  // Recipe Section
+  // Recipe Page
 
   const [recipes, setRecipes] = useState([])
   const [currentRecipe, setCurrentRecipe] = useState(recipes[0] && recipes[0].id || "")
@@ -49,7 +49,7 @@ function App() {
     const newRecipe = {
       id: nanoid(),
       name: "Sourdough",
-      steps: [],
+      steps: ["Mix the ingredients", "Let it rest", "Bake"],
       ingredients: {
         Salt: "10g",
         WholeWheatFlour: "150g",
@@ -64,8 +64,14 @@ function App() {
 
 
   
-  function deleteRecipe(id){
-    return console.log(id)
+  function deleteRecipe(selectedId){
+    const newRecipes = []
+    recipes.forEach((recipe) => {
+      if(recipe.id !== selectedId){
+        newRecipes.push(recipe)
+      }
+    })
+    setRecipes(newRecipes)
   }
 
   
