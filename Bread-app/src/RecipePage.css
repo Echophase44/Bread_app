@@ -111,6 +111,13 @@ main{
   width: auto;
 }
 
+.recipe-editRecipeName{
+  height: 30px;
+  width: 125px;
+  position: absolute;
+  outline: none;
+}
+
 .recipe-elementEditImg{
   max-width: 25px;
 }

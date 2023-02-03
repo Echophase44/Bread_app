@@ -8,15 +8,26 @@ import editImg from "../public/edit.png"
 function RecipeApp(props){
 
 
-  const recipeElements = props.recipes.map((elements, index) => (
+  const createdRecipes = props.recipes.map((elements) => (
     <div className={`recipe-recipeElement ${elements.id === props.currentRecipe ? "recipe-selectedRecipe" : ""}`} 
     key={elements.id}
     onClick={()=> props.setCurrentRecipe(elements.id)}
     >
-      <h3>Recipe {index + 1}</h3>
+      <h3 className="recipe-elementTitle">{elements.title === "" ? "New Recipe" : elements.title}</h3>
+      {elements.editName === true && <input
+        type="text" 
+        className="recipe-editRecipeName" 
+        placeholder={elements.title}
+        value = {elements.title}
+        name= "title"
+        maxLength="16"
+        onChange={()=> props.renameRecipeTitle(event)}
+        onKeyDown={()=> props.submitTitleInput(event)}>
+        </input>
+      }
       {elements.id === props.currentRecipe && 
       <div className="recipe-elementBtnContainer">
-        <button className="recipe-elementEditBtn">
+        <button className="recipe-elementEditBtn" onClick={() => props.toggleRecipeTitleInput()}>
           <img className="recipe-elementEditImg" src={editImg} alt="Edit recipe name" />
         </button>
         <button className="recipe-elementDeleteBtn" onClick={() => props.deleteRecipe(elements.id)}>
@@ -27,11 +38,6 @@ function RecipeApp(props){
 
     </div>
   ))
-
-  console.log(props.recipes.steps)
-  // const recipeSteps = 
-    
-  
 
   return(
     <main>
@@ -46,7 +52,7 @@ function RecipeApp(props){
               <button 
               className="recipe-addRecipeBtn" onClick={props.createNewRecipe}>＋</button>
             </div>
-            {recipeElements}
+            {createdRecipes}
           </div>
         </div>
       </section>

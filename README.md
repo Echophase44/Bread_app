@@ -13,5 +13,3 @@
 ## ToDo
 
 - Add local storage for Recipes
-- Add another state for current selected recipe (use ID add style change)
-- Add feature to move changed recipes to top of list

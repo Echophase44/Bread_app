@@ -43,12 +43,13 @@ function App() {
 
   const [recipes, setRecipes] = useState([])
   const [currentRecipe, setCurrentRecipe] = useState(recipes[0] && recipes[0].id || "")
+  const [currentRecipeSteps, setRecipeSteps] = useState([])
   
 
   function createNewRecipe(){
     const newRecipe = {
       id: nanoid(),
-      name: "Sourdough",
+      title: "",
       steps: ["Mix the ingredients", "Let it rest", "Bake"],
       ingredients: {
         Salt: "10g",
@@ -57,13 +58,12 @@ function App() {
         Water: "250g",
         Starter: "300g"
       },
+      editName: false,
       newVersion:{},
     }
     setRecipes(prevRecipes => [...prevRecipes, newRecipe])
   }
 
-
-  
   function deleteRecipe(selectedId){
     const newRecipes = []
     recipes.forEach((recipe) => {
@@ -74,6 +74,41 @@ function App() {
     setRecipes(newRecipes)
   }
 
+  function toggleRecipeTitleInput(){
+    setRecipes(oldRecipes => {
+      const newArray = []
+      oldRecipes.forEach((recipe) => {
+        if(recipe.id === currentRecipe){
+          newArray.push({...recipe, editName: !recipe.editName })
+        } else {
+          newArray.push(recipe)
+        }
+      })
+      return newArray
+    })
+  }
+
+  function submitTitleInput(event){
+    if(event.code === "Enter"){
+      toggleRecipeTitleInput()
+    }
+  }
+
+  function renameRecipeTitle(event){
+    const {value} = event.target
+    setRecipes(oldRecipes => {
+      const newArray = []
+      oldRecipes.forEach((recipe) => {
+        if(recipe.id === currentRecipe){
+          newArray.push({...recipe, title: value })
+        } else {
+          newArray.push(recipe)
+        }
+      })
+      return newArray
+    })
+    
+  }
   
  return (
   <>
@@ -86,6 +121,9 @@ function App() {
     deleteRecipe = {deleteRecipe}
     currentRecipe = {currentRecipe}
     setCurrentRecipe = {setCurrentRecipe}
+    toggleRecipeTitleInput = {toggleRecipeTitleInput}
+    renameRecipeTitle = {renameRecipeTitle}
+    submitTitleInput = {submitTitleInput}
     /> :
     <LoginApp 
     userLogin = {setNewUser}
