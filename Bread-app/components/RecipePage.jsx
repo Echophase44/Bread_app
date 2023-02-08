@@ -11,16 +11,17 @@ function RecipeApp(props){
   const createdRecipes = props.recipes.map((elements) => (
     <div className={`recipe-recipeElement ${elements.id === props.currentRecipe ? "recipe-selectedRecipe" : ""}`} 
     key={elements.id}
-    onClick={()=> props.setCurrentRecipe(elements.id)}
+    onClick={()=> {props.setCurrentRecipe(elements.id); props.openCurrentRecipeSteps(elements.steps)}}
     >
       <h3 className="recipe-elementTitle">{elements.title === "" ? "New Recipe" : elements.title}</h3>
       {elements.editName === true && <input
-        type="text" 
+        type="text"
+        autoFocus
         className="recipe-editRecipeName" 
         placeholder={elements.title}
         value = {elements.title}
         name= "title"
-        maxLength="16"
+        maxLength="20"
         onChange={()=> props.renameRecipeTitle(event)}
         onKeyDown={()=> props.submitTitleInput(event)}>
         </input>
@@ -35,9 +36,10 @@ function RecipeApp(props){
         </button>
       </div>
       }
-
     </div>
   ))
+
+  console.log(props.currentRecipeSteps)
 
   return(
     <main>
@@ -61,7 +63,7 @@ function RecipeApp(props){
         <div className="recipe-stepsContainer">
           <h2 className="recipe-stepsTitle">Recipe Steps</h2>
           <div className="recipe-stepsInfo">
-            {/* {recipeSteps} */}
+            {/* {recipeStepsData} */}
           </div>
         </div>
       </section>

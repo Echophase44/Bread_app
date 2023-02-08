@@ -43,14 +43,15 @@ function App() {
 
   const [recipes, setRecipes] = useState([])
   const [currentRecipe, setCurrentRecipe] = useState(recipes[0] && recipes[0].id || "")
-  const [currentRecipeSteps, setRecipeSteps] = useState([])
+  const [currentRecipeSteps, setCurrentRecipeSteps] = useState([])
+  
   
 
   function createNewRecipe(){
     const newRecipe = {
       id: nanoid(),
       title: "",
-      steps: ["Mix the ingredients", "Let it rest", "Bake"],
+      steps: [["Make the Dough", "Whisk the starter, water, and olive oil in a large bowl."], ["Bulk Rise", "Now the dough needs to rise"]],
       ingredients: {
         Salt: "10g",
         WholeWheatFlour: "150g",
@@ -97,7 +98,7 @@ function App() {
   function renameRecipeTitle(event){
     const {value} = event.target
     setRecipes(oldRecipes => {
-      const newArray = []
+      const newArray = [] 
       oldRecipes.forEach((recipe) => {
         if(recipe.id === currentRecipe){
           newArray.push({...recipe, title: value })
@@ -107,7 +108,10 @@ function App() {
       })
       return newArray
     })
-    
+  }
+
+  function openCurrentRecipeSteps(theSteps){
+    setCurrentRecipeSteps(theSteps)
   }
   
  return (
@@ -121,9 +125,11 @@ function App() {
     deleteRecipe = {deleteRecipe}
     currentRecipe = {currentRecipe}
     setCurrentRecipe = {setCurrentRecipe}
+    currentRecipeSteps = {currentRecipeSteps}
     toggleRecipeTitleInput = {toggleRecipeTitleInput}
     renameRecipeTitle = {renameRecipeTitle}
     submitTitleInput = {submitTitleInput}
+    openCurrentRecipeSteps = {openCurrentRecipeSteps}
     /> :
     <LoginApp 
     userLogin = {setNewUser}
