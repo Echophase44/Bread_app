@@ -14,7 +14,7 @@ function createUsername(){
   const Username = `${firstname}${lastname}`
 
   return(
-  <h2 className="recipe-username">{Username}'s Recipes</h2>
+  Username
   )
 }
 

@@ -3,6 +3,7 @@ import React from 'react'
 import { nanoid } from "nanoid"
 import LoginApp from "../components/LoginApp"
 import RecipeApp from "../components/RecipePage"
+import createUsername from "../components/usernameGenerator"
 
 
 
@@ -16,6 +17,14 @@ function App() {
     username: "",
     isCreated: false,
   })
+
+  function generateUsername(){
+    let newUsername = createUsername()
+    setNewUser(prevUser => ({
+      ...prevUser,
+      username: newUsername
+    }))
+  }
 
   React.useEffect(()=> {
     localStorage.setItem("User", JSON.stringify(newUser))
@@ -121,6 +130,7 @@ function App() {
     <RecipeApp 
     user = {newUser}
     recipes = {recipes}
+    generateUsername = {generateUsername}
     createNewRecipe = {createNewRecipe}
     deleteRecipe = {deleteRecipe}
     currentRecipe = {currentRecipe}

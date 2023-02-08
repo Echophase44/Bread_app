@@ -1,5 +1,4 @@
 import React from "react";
-import Username from "./usernameGenerator"
 import '../src/RecipePage.css'
 import settingsIcon from "../public/setting.png"
 import deleteImg from "../public/delete.png"
@@ -39,14 +38,14 @@ function RecipeApp(props){
     </div>
   ))
 
-  console.log(props.currentRecipeSteps)
+  // console.log(props.currentRecipeSteps)
 
   return(
     <main>
       <section className="recipe-listSection">
         <div className="recipe-listContainer">
           <nav className="recipe-nav">
-            <Username />
+          <h2 className="recipe-username">{props.user.username === "" ? props.generateUsername() : props.user.username}'s Recipes</h2>
             <button className="recipe-settingsButton"><img className="recipe-settingsIcon" src={settingsIcon} alt="User Settings" /></button>
           </nav>
           <div className="recipe-recipes">
