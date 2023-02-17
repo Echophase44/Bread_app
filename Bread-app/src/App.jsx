@@ -51,8 +51,9 @@ function App() {
   // Recipe Page
 
   const [recipes, setRecipes] = useState([])
-  const [currentRecipe, setCurrentRecipe] = useState(recipes[0] && recipes[0].id || "")
-  const [currentRecipeSteps, setCurrentRecipeSteps] = useState([])
+  const [currentRecipeId, setCurrentRecipeId] = useState(recipes[0] && recipes[0].id || "")
+  const [selectedRecipe, setSelectedRecipe] = useState([])
+  const [settingsPanel, setSettingsPanel] = useState(false)
   
   
 
@@ -60,7 +61,10 @@ function App() {
     const newRecipe = {
       id: nanoid(),
       title: "",
-      steps: [["Make the Dough", "Whisk the starter, water, and olive oil in a large bowl."], ["Bulk Rise", "Now the dough needs to rise"]],
+       steps: [
+        {title: "Make the Dough", body: "Whisk the starter, water, and olive oil in a large bowl."}, 
+        {title: "Bulk Rise", body: "Now the dough needs to rise"},
+      ],
       ingredients: {
         Salt: "10g",
         WholeWheatFlour: "150g",
@@ -88,7 +92,7 @@ function App() {
     setRecipes(oldRecipes => {
       const newArray = []
       oldRecipes.forEach((recipe) => {
-        if(recipe.id === currentRecipe){
+        if(recipe.id === currentRecipeId){
           newArray.push({...recipe, editName: !recipe.editName })
         } else {
           newArray.push(recipe)
@@ -109,7 +113,7 @@ function App() {
     setRecipes(oldRecipes => {
       const newArray = [] 
       oldRecipes.forEach((recipe) => {
-        if(recipe.id === currentRecipe){
+        if(recipe.id === currentRecipeId){
           newArray.push({...recipe, title: value })
         } else {
           newArray.push(recipe)
@@ -119,9 +123,17 @@ function App() {
     })
   }
 
-  function openCurrentRecipeSteps(theSteps){
-    setCurrentRecipeSteps(theSteps)
+  function settingsPanelToggle() {
+    setSettingsPanel(!settingsPanel)
   }
+
+  function openCurrentRecipeSteps(theSteps){
+    setSelectedRecipe(theSteps)
+  }
+
+  // ########## Settings Panel ###########
+
+
   
  return (
   <>
@@ -133,13 +145,15 @@ function App() {
     generateUsername = {generateUsername}
     createNewRecipe = {createNewRecipe}
     deleteRecipe = {deleteRecipe}
-    currentRecipe = {currentRecipe}
-    setCurrentRecipe = {setCurrentRecipe}
-    currentRecipeSteps = {currentRecipeSteps}
+    currentRecipeId = {currentRecipeId}
+    setCurrentRecipeId = {setCurrentRecipeId}
+    selectedRecipe = {selectedRecipe}
     toggleRecipeTitleInput = {toggleRecipeTitleInput}
     renameRecipeTitle = {renameRecipeTitle}
     submitTitleInput = {submitTitleInput}
     openCurrentRecipeSteps = {openCurrentRecipeSteps}
+    settingsPanel = {settingsPanel}
+    settingsPanelToggle = {settingsPanelToggle}
     /> :
     <LoginApp 
     userLogin = {setNewUser}

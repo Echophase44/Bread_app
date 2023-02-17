@@ -19,6 +19,48 @@ main{
   gap: 20px;
 }
 
+/* ################## Settings Panel ################# */
+
+.settings-settingsContainer{
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+.settings-panel{
+  width: 24.5vw;
+  background-color: rgb(94, 91, 91);
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-clearSection{
+  width: 75.5vw;
+  background-color: transparent;
+}
+
+.settings-buttonContainer{
+  display: flex;
+  justify-content: end;
+}
+
+.settings-closePanelButton {
+  height: 25px;
+  width: 30px;
+}
+
+.settings-settingsList{
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-settingsList > *{
+  font-size: 1.4rem;
+  color: white;
+  padding: 10px;
+}
+
 /* ################## Nav ################# */
 
 .recipe-listSection{
@@ -56,6 +98,12 @@ main{
 
 .recipe-settingsIcon{
   max-width: 25px;
+}
+
+.recipe-settingsIcon:hover{
+  transform: rotate(135deg);
+  transition: 1s;
+  cursor:pointer;
 }
 
 .recipe-navOptions{
@@ -155,12 +203,30 @@ main{
 
 .recipe-stepsTitle{
   text-align: center;
+  padding-bottom: 20px;
 }
 
 .recipe-stepsInfo{
-  
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1px;
 }
 
+.recipe-stepContainer{
+  display: flex;
+  flex-direction: column;
+  background-color: #d4d5d7;
+  margin-bottom: 1px;
+}
+
+.recipe-stepTitle{
+  padding: 5px;
+}
+
+.recipe-stepBody{
+  font-size: 1.5rem;
+  padding: 5px 0px 15px 10px;
+}
 /* ################## Ingedients Section ################# */
 
 .recipe-ingredientsSection{
