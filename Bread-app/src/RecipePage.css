@@ -26,6 +26,12 @@ main{
   height: 100vh;
   width: 100vw;
   display: flex;
+  animation: settingSlide 0.5s;
+}
+
+@keyframes settingSlide{
+  from {right: 24.5vw}
+  to {right: 0vw}
 }
 
 .settings-panel{
@@ -59,6 +65,7 @@ main{
   font-size: 1.4rem;
   color: white;
   padding: 10px;
+  list-style: none;
 }
 
 /* ################## Nav ################# */
