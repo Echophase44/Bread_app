@@ -52,9 +52,8 @@ function App() {
 
   const [recipes, setRecipes] = useState([])
   const [currentRecipeId, setCurrentRecipeId] = useState(recipes[0] && recipes[0].id || "")
-  const [selectedRecipe, setSelectedRecipe] = useState([])
+  const [selectedRecipe, setSelectedRecipe] = useState({})
   const [settingsPanel, setSettingsPanel] = useState(false)
-  
   
 
   function createNewRecipe(){
@@ -78,7 +77,7 @@ function App() {
     setRecipes(prevRecipes => [...prevRecipes, newRecipe])
   }
 
-  function deleteRecipe(selectedId){
+  async function deleteRecipe(selectedId){
     const newRecipes = []
     recipes.forEach((recipe) => {
       if(recipe.id !== selectedId){
@@ -123,42 +122,36 @@ function App() {
     })
   }
 
+  // ########## Settings Panel ###########
+
   function settingsPanelToggle() {
     setSettingsPanel(!settingsPanel)
   }
-
-  function openCurrentRecipeSteps(theSteps){
-    setSelectedRecipe(theSteps)
-  }
-
-  // ########## Settings Panel ###########
-
-
   
  return (
   <>
   {
     newUser.isCreated ?
     <RecipeApp 
-    user = {newUser}
-    recipes = {recipes}
-    generateUsername = {generateUsername}
-    createNewRecipe = {createNewRecipe}
-    deleteRecipe = {deleteRecipe}
-    currentRecipeId = {currentRecipeId}
-    setCurrentRecipeId = {setCurrentRecipeId}
-    selectedRecipe = {selectedRecipe}
-    toggleRecipeTitleInput = {toggleRecipeTitleInput}
-    renameRecipeTitle = {renameRecipeTitle}
-    submitTitleInput = {submitTitleInput}
-    openCurrentRecipeSteps = {openCurrentRecipeSteps}
-    settingsPanel = {settingsPanel}
-    settingsPanelToggle = {settingsPanelToggle}
+      user = {newUser}
+      recipes = {recipes}
+      generateUsername = {generateUsername}
+      createNewRecipe = {createNewRecipe}
+      deleteRecipe = {deleteRecipe}
+      currentRecipeId = {currentRecipeId}
+      setCurrentRecipeId = {setCurrentRecipeId}
+      selectedRecipe = {selectedRecipe}
+      setSelectedRecipe = {setSelectedRecipe}
+      toggleRecipeTitleInput = {toggleRecipeTitleInput}
+      renameRecipeTitle = {renameRecipeTitle}
+      submitTitleInput = {submitTitleInput}
+      settingsPanel = {settingsPanel}
+      settingsPanelToggle = {settingsPanelToggle}
     /> :
     <LoginApp 
-    userLogin = {setNewUser}
-    handleChange = {handleChange}
-    createUser = {createUser}
+      userLogin = {setNewUser}
+      handleChange = {handleChange}
+      createUser = {createUser}
     /> 
   }
   </>
