@@ -52,7 +52,7 @@ function App() {
 
   const [recipes, setRecipes] = useState([])
   const [currentRecipeId, setCurrentRecipeId] = useState(recipes[0] && recipes[0].id || "")
-  const [selectedRecipe, setSelectedRecipe] = useState({})
+  const [selectedRecipe, setSelectedRecipe] = useState({steps: [{title: "", body: "Create or select a recipe to get started"}]})
   const [settingsPanel, setSettingsPanel] = useState(false)
   
 
@@ -77,7 +77,7 @@ function App() {
     setRecipes(prevRecipes => [...prevRecipes, newRecipe])
   }
 
-  async function deleteRecipe(selectedId){
+  function deleteRecipe(selectedId){
     const newRecipes = []
     recipes.forEach((recipe) => {
       if(recipe.id !== selectedId){
@@ -127,6 +127,12 @@ function App() {
   function settingsPanelToggle() {
     setSettingsPanel(!settingsPanel)
   }
+
+  function clearCurrentRecipe(event) {
+    event.stopPropagation()
+    setSelectedRecipe({steps: [{title: "", body: "Create or select a recipe to get started"}]})
+    setCurrentRecipeId("")
+  }
   
  return (
   <>
@@ -147,6 +153,7 @@ function App() {
       submitTitleInput = {submitTitleInput}
       settingsPanel = {settingsPanel}
       settingsPanelToggle = {settingsPanelToggle}
+      clearCurrentRecipe = {clearCurrentRecipe}
     /> :
     <LoginApp 
       userLogin = {setNewUser}

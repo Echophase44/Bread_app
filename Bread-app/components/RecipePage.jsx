@@ -8,7 +8,7 @@ function RecipeApp(props){
   const createdRecipes = props.recipes.map((elements) => (
     <div className={`recipe-recipeElement ${elements.id === props.currentRecipeId ? "recipe-selectedRecipe" : ""}`} 
     key={elements.id}
-    onClick={()=> {props.setCurrentRecipeId(elements.id); props.setSelectedRecipe(elements)}}
+    onClick={() => {props.setCurrentRecipeId(elements.id); props.setSelectedRecipe(elements)}}
     >
       <h3 className="recipe-elementTitle">{elements.title === "" ? "New Recipe" : elements.title}</h3>
       {elements.editName === true && <input
@@ -19,8 +19,8 @@ function RecipeApp(props){
         value = {elements.title}
         name= "title"
         maxLength="20"
-        onChange={()=> props.renameRecipeTitle(event)}
-        onKeyDown={()=> props.submitTitleInput(event)}>
+        onChange={event => props.renameRecipeTitle(event)}
+        onKeyDown={event => props.submitTitleInput(event)}>
         </input>
       }
 
@@ -29,11 +29,12 @@ function RecipeApp(props){
           <button className="recipe-elementEditBtn" onClick={() => {props.toggleRecipeTitleInput()}}>
             <img className="recipe-elementEditImg" src={editImg} alt="Edit recipe name" />
           </button>
-          <button className="recipe-elementDeleteBtn" onClick={() => {props.deleteRecipe(elements.id)}}>
+          <button className="recipe-elementDeleteBtn" onClick={event => {props.deleteRecipe(elements.id); props.clearCurrentRecipe(event)}}>
             <img className="recipe-elementDeleteImg" src={deleteImg} alt="Delete Recipe"/>
           </button>
         </div>
       }
+
     </div>
   ))
 
@@ -43,7 +44,6 @@ function RecipeApp(props){
       <p className="recipe-stepBody">{recipeSteps.body}</p>
     </div>
   ))
-
 
   return(
     <main>
@@ -55,7 +55,7 @@ function RecipeApp(props){
           <ul className="settings-settingsList">
             <li>Change Username</li>
             <li>Change Email</li>
-            <li>Chnage Password</li>
+            <li>Change Password</li>
             <li>Dark Mode</li>
             <li>Delete All Recipes</li>
           </ul>
