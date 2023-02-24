@@ -122,6 +122,30 @@ function App() {
     })
   }
 
+  //########## Steps Panel ###########
+
+  function addNewStep(){
+    const updatedSelection = recipes.find(newSelection => newSelection.id === currentRecipeId)
+    const newStep = [...updatedSelection.steps, {title: "Test Title", body: "Test Body"}]
+
+    setSelectedRecipe(prevRecipeSteps => ({
+      ...prevRecipeSteps, steps: newStep
+    }))
+
+    let newRecipes = []
+    setRecipes(oldRecipes => {
+      
+      oldRecipes.forEach((recipe) => {
+        if(recipe.id === currentRecipeId){
+          newRecipes.push({...recipe, steps: newStep})
+        } else {
+          newRecipes.push(recipe)
+        }
+      })
+      return newRecipes
+    })
+  }
+
   // ########## Settings Panel ###########
 
   function settingsPanelToggle() {
@@ -154,6 +178,7 @@ function App() {
       settingsPanel = {settingsPanel}
       settingsPanelToggle = {settingsPanelToggle}
       clearCurrentRecipe = {clearCurrentRecipe}
+      addNewStep = {addNewStep}
     /> :
     <LoginApp 
       userLogin = {setNewUser}

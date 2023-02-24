@@ -45,6 +45,8 @@ function RecipeApp(props){
     </div>
   ))
 
+  // console.log(props.recipes)
+
   return(
     <main>
       {props.settingsPanel && <section className="settings-settingsContainer">
@@ -72,7 +74,7 @@ function RecipeApp(props){
           <div className="recipe-recipes">
             <div className="recipe-navOptions">
               <button 
-              className="recipe-addRecipeBtn" onClick={props.createNewRecipe}>＋</button>
+              className="recipe-addRecipeBtn" onClick={() => {props.createNewRecipe()}}>＋</button>
             </div>
             {createdRecipes}
           </div>
@@ -84,6 +86,9 @@ function RecipeApp(props){
           <h2 className="recipe-stepsTitle">Recipe Steps</h2>
           <div className="recipe-stepsInfo">
             {currentRecipeSteps}
+          </div>
+          <div className="recipe-addRecipeWrapper">
+            <button className="recipe-addRecipeStep" onClick={() => {props.addNewStep()}}>＋</button>
           </div>
         </div>
       </section>
