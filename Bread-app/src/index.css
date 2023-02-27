@@ -38,6 +38,7 @@ html {
   flex-direction: column;
   justify-content: space-evenly;
   max-height: 45vh;
+  overflow-y: auto;
 }
 
 .login-Title{
@@ -91,6 +92,11 @@ html {
   color: #6d6d6d;
 }
 
+#password:focus + label.login-passwordError, #password:not(:placeholder-shown) + label.login-passwordError{
+  transform: translateY(-2rem) scale(.9);
+  color: rgb(215, 33, 33);
+}
+
 .login-relativeInput{
  position: relative;
  margin-top: 15px;
@@ -98,6 +104,15 @@ html {
 
 .login-label{
   font-size: 1.4rem;
+  position: absolute;
+  left: 0;
+  transform-origin: 0 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.login-passwordError{
+  color: rgb(237, 16, 16);
+  font-size: 1.3rem;
   position: absolute;
   left: 0;
   transform-origin: 0 0;

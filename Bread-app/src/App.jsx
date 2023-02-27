@@ -15,6 +15,7 @@ function App() {
     password: "",
     confirmPassword: "",
     username: "",
+    passwordError: false,
     isCreated: false,
   })
 
@@ -40,12 +41,23 @@ function App() {
   }
 
   function createUser(){
-    setNewUser(prevUser => {
-      return {
-        ...prevUser,
-        isCreated: true
-      }
-    })
+    if(newUser.password !== newUser.confirmPassword){
+      setNewUser(prevUser => {
+        return {
+          ...prevUser,
+          passwordError: true
+        }
+      })
+    } else if (newUser.password !== "" && newUser.password === newUser.confirmPassword){
+      setNewUser(prevUser => {
+        return {
+          ...prevUser,
+          isCreated: true,
+          passwordError: false
+        }
+      })
+    }
+    
   }
 
   // Recipe Page
@@ -181,6 +193,7 @@ function App() {
       addNewStep = {addNewStep}
     /> :
     <LoginApp 
+      passwordError = {newUser.passwordError}
       userLogin = {setNewUser}
       handleChange = {handleChange}
       createUser = {createUser}
