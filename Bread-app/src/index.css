@@ -92,7 +92,7 @@ html {
   color: #6d6d6d;
 }
 
-#password:focus + label.login-passwordError, #password:not(:placeholder-shown) + label.login-passwordError{
+#password:focus + label.login-passwordError, #password:not(:placeholder-shown) + label.login-passwordError, #confirmPassword:focus + label.login-passwordError, #confirmPassword:not(:placeholder-shown) + label.login-passwordError{
   transform: translateY(-2rem) scale(.9);
   color: rgb(215, 33, 33);
 }

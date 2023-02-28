@@ -51,7 +51,7 @@ function LoginApp(props){
                     placeholder=" "
                     onChange={props.handleChange}
                   />
-                  <label className='login-label' htmlFor="confirmPassword">Confrim Password</label>
+                  <label className={` ${props.passwordError ? 'login-passwordError' : "login-label"}`} htmlFor="confirmPassword">Confirm Password</label>
                 </div>
               </div>
           </form>
