@@ -5,18 +5,30 @@
   font-family: "Titillium Web", sans-serif;
 }
 
+:root {
+  --gray: #e9ebf8;
+  --orange: #d8ab78;
+  --lightorange: #efcba1;
+  --darkblue: #617bb9;
+  --lightpurple: #cdb7ca;
+  --purple: #cfc7cd;
+  --darkpurple: #76326e;
+  --lightblue: #449DD1;
+  --green: #8ac7b9;
+  
+}
+
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
 }
 
 main{
-  display: grid;
-  grid-template-columns: 2fr 3fr 2fr;
+  display: flex;
   height: 100vh;
   width: auto;
-  background-image: linear-gradient(to right, #fbaf59,#f0b480);
-  gap: 20px;
+  background-color: var(--darkpurple);
+  gap: 10px;
 }
 
 /* ################## Settings Panel ################# */
@@ -35,7 +47,7 @@ main{
 }
 
 .settings-panel{
-  width: 24.5vw;
+  width: 21.5vw;
   background-color: rgb(94, 91, 91);
   display: flex;
   flex-direction: column;
@@ -78,11 +90,11 @@ main{
 }
 
 .recipe-listContainer{
-  background-color: #e1e2e6;
+  background-color: var(--purple);
   padding: 15px 0px;
-  border-radius: 8px;
-  height: 95vh;
-  margin-left: 15px;
+  border-radius: 0px 8px 8px 0px;
+  height: 100vh;
+  /* width: auto; */
   box-shadow: 1px 6px 5px -4px rgba(71, 71, 71, 0.75);
   overflow-y: auto;
 }
@@ -126,28 +138,35 @@ main{
   width: 20vw;
   font-size: 3rem;
   text-align: center;
+  transition: .5s;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+.recipe-addRecipeBtn:hover{
+  background-color: var(--orange);
+  
 }
 
 .recipe-recipes{
-  background-color: #e1e2e6;
+  background-color: var(--purple);
   display: flex;
   flex-direction: column;
 }
 
 .recipe-recipeElement{
-  background-color: #acadad;
+  background-color: var(--orange);
   padding: 15px;
   font-size: 1.4rem;
   margin-bottom: 1px;
   display: flex;
   justify-content: space-between;
-  border-left: 1px solid black;
   align-items: center;
   height: 65px;
 }
 
 .recipe-selectedRecipe{
-  background-color: #996f3f;
+  background-color: var(--gray);
 }
 
 .recipe-elementBtnContainer{
@@ -157,12 +176,12 @@ main{
 
 .recipe-elementEditBtn{
   border: none;
-  background-color: #996f3f;
+  background-color: var(--gray);
 }
 
 .recipe-elementDeleteBtn{
   border: none;
-  background-color: #996f3f;
+  background-color: var(--gray);
   height: 40px;
   width: auto;
 }
@@ -192,19 +211,32 @@ main{
   filter: invert(34%) sepia(85%) saturate(1438%) hue-rotate(350deg) brightness(88%) contrast(97%);
   cursor: pointer;
 }
+
 /* ################## Recipe Steps ################# */
 
 .recipe-stepsSection{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 80vw;
+}
+
+.recipe-navContainer{
+  display: flex;
+  justify-content: space-around;
+  position: sticky;
+  margin-top: -20px;
+  top: -20px;
+  padding: 15px;
+  background-color: var(--orange);
 }
 
 .recipe-stepsContainer{
-  background-color: #e1e2e6;
+  background-color: var(--purple);
   padding: 15px 0px;
-  border-radius: 8px;
-  height: 95vh;
+  border-radius: 8px 0px 0px 8px;
+  height: 100vh;
+  overflow-y: auto;
   box-shadow: 1px 6px 5px -4px rgba(71, 71, 71, 0.75);
 }
 
@@ -219,11 +251,12 @@ main{
   margin-bottom: 1px;
 }
 
-.recipe-stepContainer{
+.recipe-stepInstructionContainer{
   display: flex;
   flex-direction: column;
-  background-color: #d4d5d7;
+  background-color: var(--gray);
   margin-bottom: 1px;
+  width: 40vw;
 }
 
 .recipe-stepTitle{
@@ -237,7 +270,7 @@ main{
 
 .recipe-addRecipeWrapper{
   display: flex;
-  justify-content: end;
+  justify-content: start;
 }
 
 .recipe-addRecipeStep{

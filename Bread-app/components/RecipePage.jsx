@@ -39,13 +39,11 @@ function RecipeApp(props){
   ))
 
   const currentRecipeSteps = props.selectedRecipe?.steps?.map((recipeSteps, index) => (
-    <div className="recipe-stepContainer" key={index}>
-      <h2 className="recipe-stepTitle">{recipeSteps.title}</h2>
+    <div className="recipe-stepInstructionContainer" key={index}>
+      <h2 className="recipe-stepTitle">{`Step ${index + 1}`}</h2>
       <p className="recipe-stepBody">{recipeSteps.body}</p>
     </div>
   ))
-
-  // console.log(props.recipes)
 
   return(
     <main>
@@ -83,22 +81,28 @@ function RecipeApp(props){
 
       <section className="recipe-stepsSection">
         <div className="recipe-stepsContainer">
-          <h2 className="recipe-stepsTitle">Recipe Steps</h2>
+          <nav className="recipe-navContainer">
+            <h2 className="recipe-stepsTitle">Instructions</h2>
+            <h2 className="recipe-IngredientsTitle">Ingredients</h2>
+            <div className="recipe-addRecipeWrapper">
+              <button className="recipe-addRecipeStep" onClick={() => {props.addNewStep()}}>＋</button>
+            </div>
+          </nav>
+          
+
           <div className="recipe-stepsInfo">
             {currentRecipeSteps}
           </div>
-          <div className="recipe-addRecipeWrapper">
-            <button className="recipe-addRecipeStep" onClick={() => {props.addNewStep()}}>＋</button>
-          </div>
+          
         </div>
       </section>
 
-      <section className="recipe-ingredientsSection">
+      {/* <section className="recipe-ingredientsSection">
         <div className="recipe-ingredientsContainer">
         
         <h1>Recipe Ingredients</h1>
         </div>
-      </section>
+      </section> */}
     </main>
   )
 }

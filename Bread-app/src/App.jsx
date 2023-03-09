@@ -73,8 +73,8 @@ function App() {
       id: nanoid(),
       title: "",
        steps: [
-        {title: "Make the Dough", body: "Whisk the starter, water, and olive oil in a large bowl."}, 
-        {title: "Bulk Rise", body: "Now the dough needs to rise"},
+        {title: "", body: "Whisk the starter, water, and olive oil in a large bowl."}, 
+        {title: "", body: "Now the dough needs to rise"},
       ],
       ingredients: {
         Salt: "10g",
