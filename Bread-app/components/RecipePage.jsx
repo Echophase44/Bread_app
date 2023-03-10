@@ -1,12 +1,11 @@
 import React from "react";
 import '../src/RecipePage.css'
-import settingsIcon from "../public/setting.png"
 import deleteImg from "../public/delete.png"
 import editImg from "../public/edit.png"
 import SettingsPanel from "./SettingsPanel"
+import RecipeList from "./RecipeList";
 
 function RecipeApp(props){
-  const settingsPanelToggle = props.settingsPanelToggle
 
   const createdRecipes = props.recipes.map((elements) => (
     <div className={`recipe-recipeElement ${elements.id === props.currentRecipeId ? "recipe-selectedRecipe" : ""}`} 
@@ -37,7 +36,6 @@ function RecipeApp(props){
           </button>
         </div>
       }
-
     </div>
   ))
 
@@ -48,6 +46,12 @@ function RecipeApp(props){
     </div>
   ))
 
+  // Passed props
+  const settingsPanelToggle = props.settingsPanelToggle
+  const generateUsername = props.generateUsername
+  const createNewRecipe = props.createNewRecipe
+  const username = props.user.username
+
   return(
     <main>
       {props.settingsPanel && 
@@ -56,21 +60,14 @@ function RecipeApp(props){
         />
       }
 
-      <section className="recipe-listSection">
-        <div className="recipe-listContainer">
-          <nav className="recipe-nav">
-          <h2 className="recipe-username">{props.user.username === "" ? props.generateUsername() : props.user.username}'s Recipes</h2>
-            <button className="recipe-settingsButton" onClick={() => props.settingsPanelToggle()}><img className="recipe-settingsIcon" src={settingsIcon} alt="User Settings" /></button>
-          </nav>
-          <div className="recipe-recipes">
-            <div className="recipe-navOptions">
-              <button 
-              className="recipe-addRecipeBtn" onClick={() => {props.createNewRecipe()}}>＋</button>
-            </div>
-            {createdRecipes}
-          </div>
-        </div>
-      </section>
+      <RecipeList
+        settingsPanelToggle = {settingsPanelToggle}
+        generateUsername = {generateUsername}
+        createNewRecipe = {createNewRecipe}
+        username = {username}
+        createdRecipes = {createdRecipes}
+      />
+     
 
       <section className="recipe-stepsSection">
         <div className="recipe-stepsContainer">
@@ -81,14 +78,12 @@ function RecipeApp(props){
               <button className="recipe-addRecipeStep" onClick={() => {props.addNewStep()}}>＋</button>
             </div>
           </nav>
-          
-
           <div className="recipe-stepsInfo">
             {currentRecipeSteps}
           </div>
-          
         </div>
       </section>
+
     </main>
   )
 }

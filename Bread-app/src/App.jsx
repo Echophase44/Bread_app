@@ -133,7 +133,7 @@ function App() {
     })
   }
 
-  //########## Steps Panel ###########
+  //########## Instructions Panel ###########
 
   function addNewStep(){
     const updatedSelection = recipes.find(newSelection => newSelection.id === currentRecipeId)
