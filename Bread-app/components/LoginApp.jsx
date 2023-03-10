@@ -27,6 +27,7 @@ function LoginApp(props){
                     name="email"
                     placeholder=" "
                     onChange={props.handleChange}
+                    required
                   />
                   <label className='login-label' htmlFor="email">Email</label>
                 </div>
@@ -38,6 +39,7 @@ function LoginApp(props){
                     name="password"
                     placeholder=" "
                     onChange={props.handleChange}
+                    required
                   />
                   <label className={` ${props.passwordError ? 'login-passwordError' : "login-label"}`} htmlFor="password">{props.passwordError ? "*Passowrds didn't match" : "Password"}</label>
                 </div>
@@ -50,6 +52,7 @@ function LoginApp(props){
                     id="confirmPassword"
                     placeholder=" "
                     onChange={props.handleChange}
+                    required
                   />
                   <label className={` ${props.passwordError ? 'login-passwordError' : "login-label"}`} htmlFor="confirmPassword">Confirm Password</label>
                 </div>

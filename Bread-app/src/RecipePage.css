@@ -27,7 +27,7 @@ main{
   display: flex;
   height: 100vh;
   width: auto;
-  background-color: var(--darkpurple);
+  background-color: rgb(57, 56, 56);
   gap: 10px;
 }
 
@@ -37,6 +37,7 @@ main{
   position: absolute;
   height: 100vh;
   width: 100vw;
+  z-index: 100;
   display: flex;
   animation: settingSlide 0.5s;
 }
@@ -92,7 +93,6 @@ main{
 .recipe-listContainer{
   background-color: var(--purple);
   padding: 15px 0px;
-  border-radius: 0px 8px 8px 0px;
   height: 100vh;
   /* width: auto; */
   box-shadow: 1px 6px 5px -4px rgba(71, 71, 71, 0.75);
@@ -234,7 +234,6 @@ main{
 .recipe-stepsContainer{
   background-color: var(--purple);
   padding: 15px 0px;
-  border-radius: 8px 0px 0px 8px;
   height: 100vh;
   overflow-y: auto;
   box-shadow: 1px 6px 5px -4px rgba(71, 71, 71, 0.75);
