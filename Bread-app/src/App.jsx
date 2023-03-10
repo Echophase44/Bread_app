@@ -57,7 +57,6 @@ function App() {
         }
       })
     }
-    
   }
 
   // Recipe Page
@@ -174,7 +173,7 @@ function App() {
   <>
   {
     newUser.isCreated ?
-    <RecipeApp 
+    <RecipeApp
       user = {newUser}
       recipes = {recipes}
       generateUsername = {generateUsername}

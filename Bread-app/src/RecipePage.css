@@ -15,7 +15,6 @@
   --darkpurple: #76326e;
   --lightblue: #449DD1;
   --green: #8ac7b9;
-  
 }
 
 html {
@@ -31,63 +30,12 @@ main{
   gap: 10px;
 }
 
-/* ################## Settings Panel ################# */
-
-.settings-settingsContainer{
-  position: absolute;
-  height: 100vh;
-  width: 100vw;
-  z-index: 100;
-  display: flex;
-  animation: settingSlide 0.5s;
-}
-
-@keyframes settingSlide{
-  from {right: 24.5vw}
-  to {right: 0vw}
-}
-
-.settings-panel{
-  width: 21.5vw;
-  background-color: rgb(94, 91, 91);
-  display: flex;
-  flex-direction: column;
-}
-
-.settings-clearSection{
-  width: 75.5vw;
-  background-color: transparent;
-}
-
-.settings-buttonContainer{
-  display: flex;
-  justify-content: end;
-}
-
-.settings-closePanelButton {
-  height: 25px;
-  width: 30px;
-}
-
-.settings-settingsList{
-  display: flex;
-  flex-direction: column;
-}
-
-.settings-settingsList > *{
-  font-size: 1.4rem;
-  color: white;
-  padding: 10px;
-  list-style: none;
-}
-
 /* ################## Nav ################# */
 
 .recipe-listSection{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
 }
 
 .recipe-listContainer{

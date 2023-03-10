@@ -3,8 +3,11 @@ import '../src/RecipePage.css'
 import settingsIcon from "../public/setting.png"
 import deleteImg from "../public/delete.png"
 import editImg from "../public/edit.png"
+import SettingsPanel from "./SettingsPanel"
 
 function RecipeApp(props){
+  const settingsPanelToggle = props.settingsPanelToggle
+
   const createdRecipes = props.recipes.map((elements) => (
     <div className={`recipe-recipeElement ${elements.id === props.currentRecipeId ? "recipe-selectedRecipe" : ""}`} 
     key={elements.id}
@@ -47,21 +50,11 @@ function RecipeApp(props){
 
   return(
     <main>
-      {props.settingsPanel && <section className="settings-settingsContainer">
-        <div className="settings-panel">
-          <div className="settings-buttonContainer">
-            <button className="settings-closePanelButton" type="button" onClick={() => props.settingsPanelToggle()}>X</button>
-          </div>
-          <ul className="settings-settingsList">
-            <li>Change Username</li>
-            <li>Change Email</li>
-            <li>Change Password</li>
-            <li>Dark Mode</li>
-            <li>Delete All Recipes</li>
-          </ul>
-        </div>
-        <div className="settings-clearSection" onClick={() => props.settingsPanelToggle()}></div>
-      </section>}
+      {props.settingsPanel && 
+        <SettingsPanel
+          settingsPanelToggle = {settingsPanelToggle}
+        />
+      }
 
       <section className="recipe-listSection">
         <div className="recipe-listContainer">
@@ -96,13 +89,6 @@ function RecipeApp(props){
           
         </div>
       </section>
-
-      {/* <section className="recipe-ingredientsSection">
-        <div className="recipe-ingredientsContainer">
-        
-        <h1>Recipe Ingredients</h1>
-        </div>
-      </section> */}
     </main>
   )
 }
