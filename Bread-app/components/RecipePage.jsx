@@ -4,6 +4,7 @@ import deleteImg from "../public/delete.png"
 import editImg from "../public/edit.png"
 import SettingsPanel from "./SettingsPanel"
 import RecipeList from "./RecipeList";
+import InstructionSection from "./Instructions"
 
 function RecipeApp(props){
 
@@ -51,6 +52,7 @@ function RecipeApp(props){
   const generateUsername = props.generateUsername
   const createNewRecipe = props.createNewRecipe
   const username = props.user.username
+  const addNewStep = props.addNewStep
 
   return(
     <main>
@@ -68,22 +70,10 @@ function RecipeApp(props){
         createdRecipes = {createdRecipes}
       />
      
-
-      <section className="recipe-stepsSection">
-        <div className="recipe-stepsContainer">
-          <nav className="recipe-navContainer">
-            <h2 className="recipe-stepsTitle">Instructions</h2>
-            <h2 className="recipe-IngredientsTitle">Ingredients</h2>
-            <div className="recipe-addRecipeWrapper">
-              <button className="recipe-addRecipeStep" onClick={() => {props.addNewStep()}}>＋</button>
-            </div>
-          </nav>
-          <div className="recipe-stepsInfo">
-            {currentRecipeSteps}
-          </div>
-        </div>
-      </section>
-
+     <InstructionSection 
+        addNewStep = {addNewStep}
+        currentRecipeSteps = {currentRecipeSteps}
+     />
     </main>
   )
 }
