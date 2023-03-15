@@ -15,8 +15,6 @@
 ### General
 
 - Add local storage for Recipes.
-- Break the site into managable files/components.
-- Move all component toggles into one toggleState.
 - Look into a visual cue for when the recipe list / steps section overflows-y, its hard to tell as is when it's overflowing.
 - Keep working on the color palette and where to apply colors to get the ratios right.
 - Load with a full example recipe with a history so users can see all the features.

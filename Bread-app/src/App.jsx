@@ -60,11 +60,17 @@ function App() {
   }
 
   // Recipe Page
+  const panelDefaults = {
+    settingsPanel: false,
+    editInstructionsPanel: false,
+    editIngredientsPanel: false
+  }
 
   const [recipes, setRecipes] = useState([])
   const [currentRecipeId, setCurrentRecipeId] = useState(recipes[0] && recipes[0].id || "")
   const [selectedRecipe, setSelectedRecipe] = useState({steps: [{title: "", body: "Create or select a recipe to get started"}]})
-  const [settingsPanel, setSettingsPanel] = useState(false)
+  const [togglePanels, setTogglePanels] = useState(panelDefaults)
+  
   
 
   function createNewRecipe(){
@@ -160,7 +166,9 @@ function App() {
   // ########## Settings Panel ###########
 
   function settingsPanelToggle() {
-    setSettingsPanel(!settingsPanel)
+    setTogglePanels(prevToggles => ({
+      ...prevToggles, settingsPanel:!prevToggles.settingsPanel
+    }))
   }
 
   function clearCurrentRecipe(event) {
@@ -174,6 +182,7 @@ function App() {
   {
     newUser.isCreated ?
     <RecipeApp
+      togglePanels = {togglePanels}
       user = {newUser}
       recipes = {recipes}
       generateUsername = {generateUsername}
@@ -186,7 +195,6 @@ function App() {
       toggleRecipeTitleInput = {toggleRecipeTitleInput}
       renameRecipeTitle = {renameRecipeTitle}
       submitTitleInput = {submitTitleInput}
-      settingsPanel = {settingsPanel}
       settingsPanelToggle = {settingsPanelToggle}
       clearCurrentRecipe = {clearCurrentRecipe}
       addNewStep = {addNewStep}

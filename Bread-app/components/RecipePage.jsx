@@ -46,19 +46,16 @@ function RecipeApp(props){
       <p className="recipe-stepBody">{recipeSteps.body}</p>
     </div>
   ))
-
+    console.log(props.togglePanels)
   // Passed props
-  const settingsPanelToggle = props.settingsPanelToggle
-  const generateUsername = props.generateUsername
-  const createNewRecipe = props.createNewRecipe
   const username = props.user.username
-  const addNewStep = props.addNewStep
+  const {addNewStep, createNewRecipe, generateUsername, settingsPanelToggle} = props
 
   return(
     <main>
-      {props.settingsPanel && 
+      {props.togglePanels.settingsPanel && 
         <SettingsPanel
-          settingsPanelToggle = {settingsPanelToggle}
+        settingsPanelToggle = {settingsPanelToggle}
         />
       }
 
