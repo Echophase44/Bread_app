@@ -60,3 +60,14 @@
   padding: 10px 20px;
   font-size: 2rem;
 }
+
+.recipe-bodyContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recipe-editStepButton{
+  width: 25px;
+  border: none;
+}

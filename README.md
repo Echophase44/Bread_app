@@ -25,7 +25,7 @@
 - Reorganize the title (fix button sizing / coloring).
 - Get title section to be sticky.
 
-### Steps Section
+### Instructions Section
 
 - Ability to edit steps.
 - Add/edit/view Notes for cooking steps.

@@ -163,6 +163,10 @@ function App() {
     })
   }
 
+  function updateSteps(){
+    console.log("Clicked")
+  }
+
   // ########## Settings Panel ###########
 
   function settingsPanelToggle() {
@@ -198,6 +202,7 @@ function App() {
       settingsPanelToggle = {settingsPanelToggle}
       clearCurrentRecipe = {clearCurrentRecipe}
       addNewStep = {addNewStep}
+      setTogglePanels = {setTogglePanels}
     /> :
     <LoginApp 
       passwordError = {newUser.passwordError}

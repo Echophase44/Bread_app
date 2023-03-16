@@ -5,6 +5,8 @@ import editImg from "../public/edit.png"
 import SettingsPanel from "./SettingsPanel"
 import RecipeList from "./RecipeList";
 import InstructionSection from "./Instructions"
+import pencilOutline from "../public/pencil-outline.svg"
+import EditInstructions from "./EditInstructionsModal";
 
 function RecipeApp(props){
 
@@ -40,22 +42,38 @@ function RecipeApp(props){
     </div>
   ))
 
+  function toggleModal(){
+    console.log("Clicked")
+  }
+
   const currentRecipeSteps = props.selectedRecipe?.steps?.map((recipeSteps, index) => (
     <div className="recipe-stepInstructionContainer" key={index}>
       <h2 className="recipe-stepTitle">{`Step ${index + 1}`}</h2>
-      <p className="recipe-stepBody">{recipeSteps.body}</p>
+      <div className="recipe-bodyContainer">
+        <p className="recipe-stepBody">{recipeSteps.body}</p>
+        <button className="recipe-editStepButton" onClick={toggleModal} type="button">
+          <img src={pencilOutline} alt="Edit Instruction Step" />
+        </button>
+      </div>
     </div>
   ))
-    console.log(props.togglePanels)
+    // console.log(props.togglePanels)
   // Passed props
   const username = props.user.username
-  const {addNewStep, createNewRecipe, generateUsername, settingsPanelToggle} = props
+  const {addNewStep, createNewRecipe, generateUsername, settingsPanelToggle, togglePanels} = props
 
   return(
     <main>
       {props.togglePanels.settingsPanel && 
         <SettingsPanel
         settingsPanelToggle = {settingsPanelToggle}
+        />
+      }
+
+      {
+        props.togglePanels.editInstructionsPanel && 
+        <EditInstructions 
+
         />
       }
 
@@ -70,6 +88,7 @@ function RecipeApp(props){
      <InstructionSection 
         addNewStep = {addNewStep}
         currentRecipeSteps = {currentRecipeSteps}
+        togglePanels = {togglePanels}
      />
     </main>
   )

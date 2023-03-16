@@ -1,8 +1,14 @@
 import React from "react";
-import '../styles/IngredientsSection.css'
+import '../styles/InstructionsSection.css'
  
 
 function InstructionSection (props) {
+  console.log(props)
+
+  function toggleModal(){
+    console.log("Clicked")
+  }
+
   return (
     <section className="recipe-stepsSection">
         <div className="recipe-stepsContainer">
