@@ -1,3 +1,16 @@
 .instructions-modalContainer{
-  background-color: white;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--transparentPurple);
+  
+  z-index: 25;
+
+}
+
+.instructions-contentContainer{
+  position: absolute;
+  top: 10%;
+  right: 50%;
+  background-color: var(--gray);
 }

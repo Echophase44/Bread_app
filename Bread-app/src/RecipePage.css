@@ -9,12 +9,9 @@
   --gray: #e9ebf8;
   --orange: #d8ab78;
   --lightorange: #efcba1;
-  --darkblue: #617bb9;
-  --lightpurple: #cdb7ca;
   --purple: #cfc7cd;
   --darkpurple: #76326e;
-  --lightblue: #449DD1;
-  --green: #8ac7b9;
+  --transparentPurple: rgba(207, 199, 205, .8)
 }
 
 html {

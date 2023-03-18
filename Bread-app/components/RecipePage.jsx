@@ -32,18 +32,21 @@ function RecipeApp(props){
       {elements.id === props.currentRecipeId && 
         <div className="recipe-elementBtnContainer">
           <button className="recipe-elementEditBtn" onClick={() => {props.toggleRecipeTitleInput()}}>
-            <img className="recipe-elementEditImg" src={editImg} alt="Edit recipe name" />
+            <img className="recipe-elementEditImg" src={editImg} alt="" />
           </button>
           <button className="recipe-elementDeleteBtn" onClick={event => {props.deleteRecipe(elements.id); props.clearCurrentRecipe(event)}}>
-            <img className="recipe-elementDeleteImg" src={deleteImg} alt="Delete Recipe"/>
+            <img className="recipe-elementDeleteImg" src={deleteImg} alt=""/>
           </button>
         </div>
       }
     </div>
   ))
 
-  function toggleModal(){
-    console.log("Clicked")
+  function toggleInstructionsModal(){
+    props.setTogglePanels (prevToggles => ({
+      ...prevToggles,
+      editInstructionsPanel: !prevToggles.editInstructionsPanel
+    }))
   }
 
   const currentRecipeSteps = props.selectedRecipe?.steps?.map((recipeSteps, index) => (
@@ -51,29 +54,31 @@ function RecipeApp(props){
       <h2 className="recipe-stepTitle">{`Step ${index + 1}`}</h2>
       <div className="recipe-bodyContainer">
         <p className="recipe-stepBody">{recipeSteps.body}</p>
-        <button className="recipe-editStepButton" onClick={toggleModal} type="button">
-          <img src={pencilOutline} alt="Edit Instruction Step" />
+        <button className="recipe-editStepButton" onClick={toggleInstructionsModal} type="button">
+          <img src={pencilOutline} alt=""/>
         </button>
       </div>
     </div>
   ))
-    // console.log(props.togglePanels)
+   
   // Passed props
   const username = props.user.username
+  const selectedRecipeSteps = props.selectedRecipe.steps
   const {addNewStep, createNewRecipe, generateUsername, settingsPanelToggle, togglePanels} = props
 
   return(
     <main>
       {props.togglePanels.settingsPanel && 
         <SettingsPanel
-        settingsPanelToggle = {settingsPanelToggle}
+          settingsPanelToggle = {settingsPanelToggle}
         />
       }
 
       {
         props.togglePanels.editInstructionsPanel && 
         <EditInstructions 
-
+          toggleInstructionsModal = {toggleInstructionsModal}
+          selectedRecipeSteps = {selectedRecipeSteps}
         />
       }
 

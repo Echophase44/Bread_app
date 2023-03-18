@@ -3,11 +3,7 @@ import '../styles/InstructionsSection.css'
  
 
 function InstructionSection (props) {
-  console.log(props)
-
-  function toggleModal(){
-    console.log("Clicked")
-  }
+  // console.log(props)
 
   return (
     <section className="recipe-stepsSection">

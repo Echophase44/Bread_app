@@ -1,11 +1,18 @@
 import React from "react";
 import "../styles/InstructionsModal.css"
 
-function EditInstructions(){
-  return(
-    <div className="instructions-modalContainer">
+function EditInstructions(props){
+  console.log(props.selectedRecipeSteps)
 
-    </div>
+  const selectedRecipe = ""
+
+  return(
+    <section className="instructions-modalContainer" onClick={props.toggleInstructionsModal}>
+      <div className="instructions-contentContainer">
+        <h1>Update Instructions</h1>
+        <h2></h2>
+      </div>
+    </section>
   )
 }
 
