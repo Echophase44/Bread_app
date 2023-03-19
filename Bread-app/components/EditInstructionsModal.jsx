@@ -2,9 +2,8 @@ import React from "react";
 import "../styles/InstructionsModal.css"
 
 function EditInstructions(props){
-  console.log(props.selectedRecipeSteps)
+  console.log(props.selectedStep)
 
-  const selectedRecipe = ""
 
   return(
     <section className="instructions-modalContainer" onClick={props.toggleInstructionsModal}>

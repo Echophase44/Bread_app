@@ -69,6 +69,7 @@ function App() {
   const [recipes, setRecipes] = useState([])
   const [currentRecipeId, setCurrentRecipeId] = useState(recipes[0] && recipes[0].id || "")
   const [selectedRecipe, setSelectedRecipe] = useState({steps: [{title: "", body: "Create or select a recipe to get started"}]})
+  const [selectedStep, setSelectedStep] = useState(0)
   const [togglePanels, setTogglePanels] = useState(panelDefaults)
   
   
@@ -203,6 +204,8 @@ function App() {
       clearCurrentRecipe = {clearCurrentRecipe}
       addNewStep = {addNewStep}
       setTogglePanels = {setTogglePanels}
+      selectedStep = {selectedStep}
+      setSelectedStep = {setSelectedStep}
     /> :
     <LoginApp 
       passwordError = {newUser.passwordError}
