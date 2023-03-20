@@ -3,14 +3,57 @@
   width: 100vw;
   height: 100vh;
   background-color: var(--transparentPurple);
-  
   z-index: 25;
-
 }
 
 .instructions-contentContainer{
   position: absolute;
   top: 10%;
-  right: 50%;
+  left: 30%;
   background-color: var(--gray);
+  padding: 30px;
+  border-radius: 4px;
+  text-align: center;
+  width: 500px;
+  box-shadow: -7px 10px 28px 0px rgba(0,0,0,0.54);
+} 
+
+.instructions-title{
+  font-size: 2rem;
+  border-bottom: 1px solid black;
+  padding: 10px;
+}
+
+.instructions-content, .instructions-prevStep{
+  font-size: 1.6rem;
+}
+
+.instructions-prevTitle, .instructions-newTitle{
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.instructions-prevStep, .instructions-newStep{
+  display: flex;
+  padding: 15px;
+  gap: 15px;
+  text-align: left;
+}
+
+.instructions-newBody{
+  width: 400px;
+  height: 150px;
+  font-size: 1.5rem;
+}
+
+.instructions-buttonContainer{
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.insturctions-saveButton, .instructions-cancelButton{
+  padding: 10px 30px;
+  border-radius: 4px;
+  border: 1px solid black;
 }

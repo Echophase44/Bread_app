@@ -48,7 +48,7 @@ function RecipeApp(props){
       editInstructionsPanel: !prevToggles.editInstructionsPanel
     }))
     
-    props.setSelectedStep (index)
+    props.setSelectedStep (props.selectedRecipe.steps[index])
   }
 
   const currentRecipeSteps = props.selectedRecipe?.steps?.map((recipeSteps, index) => (
