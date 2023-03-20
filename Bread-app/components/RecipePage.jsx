@@ -66,7 +66,7 @@ function RecipeApp(props){
   // Passed props
   const username = props.user.username
   const selectedRecipeSteps = props.selectedRecipe.steps
-  const {addNewStep, createNewRecipe, generateUsername, settingsPanelToggle, togglePanels, selectedStep} = props
+  const {addNewStep, createNewRecipe, generateUsername, settingsPanelToggle, togglePanels, selectedStep, setRecipes} = props
 
   return(
     <main>
@@ -82,6 +82,7 @@ function RecipeApp(props){
           toggleInstructionsModal = {toggleInstructionsModal}
           selectedRecipeSteps = {selectedRecipeSteps}
           selectedStep = {selectedStep}
+          setRecipes = {setRecipes}
         />
       }
 

@@ -190,6 +190,7 @@ function App() {
       togglePanels = {togglePanels}
       user = {newUser}
       recipes = {recipes}
+      setRecipes = {setRecipes}
       generateUsername = {generateUsername}
       createNewRecipe = {createNewRecipe}
       deleteRecipe = {deleteRecipe}

@@ -1,9 +1,18 @@
 import React from "react";
+import { useState } from 'react'
 import "../styles/InstructionsModal.css"
 
 function EditInstructions(props){
-  console.log(props.selectedStep)
+  const [newStep, setNewStep] = useState(props.selectedStep.body)
 
+  function holdChanges(newBodyText){
+    setNewStep(newBodyText)
+  }
+
+  function updateRecipeStep(){
+    console.log("Saved")
+    console.log(newStep)
+  }
 
   return(
     <section className="instructions-modalContainer">
@@ -17,11 +26,13 @@ function EditInstructions(props){
           <span className="instructions-newTitle">New:</span>
             <textarea className="instructions-newBody"
               type="text"
-              value={props.selectedStep.body}
+              value={newStep}
+              onChange={event => holdChanges(event.target.value)}
             />
         </div>
         <div className="instructions-buttonContainer">
-          <button className="insturctions-saveButton" onClick={props.toggleInstructionsModal}>Save</button>
+          <button className="insturctions-saveButton" 
+          onClick={() => {props.toggleInstructionsModal(); updateRecipeStep()}}>Save</button>
           <button className= "instructions-cancelButton">Cancel</button>
         </div>
       </div>
