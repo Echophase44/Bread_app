@@ -3,7 +3,8 @@ import { useState } from 'react'
 import "../styles/InstructionsModal.css"
 
 function EditInstructions(props){
-  const [newStep, setNewStep] = useState(props.selectedStep.body)
+  const loadedStep = props.selectedStep.body
+  const [newStep, setNewStep] = useState(loadedStep)
 
   function holdChanges(newBodyText){
     setNewStep(newBodyText)
@@ -20,7 +21,7 @@ function EditInstructions(props){
         <h1 className="instructions-title">Update Instructions</h1>
         <div className="instructions-prevStep">
           <span className="instructions-prevTitle">Previous:</span>
-          <div className="instructions-content">{props.selectedStep.body}</div>
+          <div className="instructions-content">{loadedStep}</div>
         </div>
         <div className="instructions-newStep">
           <span className="instructions-newTitle">New:</span>
@@ -32,8 +33,9 @@ function EditInstructions(props){
         </div>
         <div className="instructions-buttonContainer">
           <button className="insturctions-saveButton" 
-          onClick={() => {props.toggleInstructionsModal(); updateRecipeStep()}}>Save</button>
-          <button className= "instructions-cancelButton">Cancel</button>
+            onClick={() => {props.editInstructionsModal(); updateRecipeStep()}}>Save</button>
+          <button className= "instructions-cancelButton"
+            onClick={() => {props.editInstructionsModal()}}>Cancel</button>
         </div>
       </div>
     </section>

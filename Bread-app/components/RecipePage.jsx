@@ -42,13 +42,15 @@ function RecipeApp(props){
     </div>
   ))
 
-  function toggleInstructionsModal(index){
+  function editInstructionsModal(index){
     props.setTogglePanels (prevToggles => ({
       ...prevToggles,
       editInstructionsPanel: !prevToggles.editInstructionsPanel
     }))
     
-    props.setSelectedStep (props.selectedRecipe.steps[index])
+    if(index !== undefined){
+      props.setSelectedStep (props.selectedRecipe.steps[index])
+    }
   }
 
   const currentRecipeSteps = props.selectedRecipe?.steps?.map((recipeSteps, index) => (
@@ -56,7 +58,7 @@ function RecipeApp(props){
       <h2 className="recipe-stepTitle">{`Step ${index + 1}`}</h2>
       <div className="recipe-bodyContainer">
         <p className="recipe-stepBody">{recipeSteps.body}</p>
-        <button className="recipe-editStepButton" onClick={() => toggleInstructionsModal(index)} type="button">
+        <button className="recipe-editStepButton" onClick={() => editInstructionsModal(index)} type="button">
           <img src={pencilOutline} alt=""/>
         </button>
       </div>
@@ -79,7 +81,7 @@ function RecipeApp(props){
       {
         props.togglePanels.editInstructionsPanel && 
         <EditInstructions 
-          toggleInstructionsModal = {toggleInstructionsModal}
+          editInstructionsModal = {editInstructionsModal}
           selectedRecipeSteps = {selectedRecipeSteps}
           selectedStep = {selectedStep}
           setRecipes = {setRecipes}

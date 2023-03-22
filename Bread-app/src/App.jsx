@@ -164,10 +164,6 @@ function App() {
     })
   }
 
-  function updateSteps(){
-    console.log("Clicked")
-  }
-
   // ########## Settings Panel ###########
 
   function settingsPanelToggle() {
