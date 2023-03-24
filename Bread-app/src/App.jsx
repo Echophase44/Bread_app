@@ -32,7 +32,6 @@ function App() {
   }, [newUser])
 
   // Login Page
-
   function handleChange(event){
     setNewUser(prevUser => ({
       ...prevUser,
@@ -69,10 +68,10 @@ function App() {
   const [recipes, setRecipes] = useState([])
   const [currentRecipeId, setCurrentRecipeId] = useState(recipes[0] && recipes[0].id || "")
   const [selectedRecipe, setSelectedRecipe] = useState({steps: [{title: "", body: "Create or select a recipe to get started"}]})
-  const [selectedStep, setSelectedStep] = useState(0)
+  const [selectedStep, setSelectedStep] = useState({steps: [{title: "", body: ""}]})
+  const [selectedStepIndex, setSelectedStepIndex] = useState(0)
   const [togglePanels, setTogglePanels] = useState(panelDefaults)
-  
-  
+
 
   function createNewRecipe(){
     const newRecipe = {
@@ -140,7 +139,7 @@ function App() {
     })
   }
 
-  //########## Instructions Panel ###########
+  //########## Instructions Section ###########
 
   function addNewStep(){
     const updatedSelection = recipes.find(newSelection => newSelection.id === currentRecipeId)
@@ -162,6 +161,11 @@ function App() {
       })
       return newRecipes
     })
+  }
+
+  function saveEditStep(newBodyText, index){
+    console.log(newBodyText)
+    console.log(index)
   }
 
   // ########## Settings Panel ###########
@@ -203,6 +207,9 @@ function App() {
       setTogglePanels = {setTogglePanels}
       selectedStep = {selectedStep}
       setSelectedStep = {setSelectedStep}
+      saveEditStep = {saveEditStep}
+      selectedStepIndex = {selectedStepIndex}
+      setSelectedStepIndex = {setSelectedStepIndex}
     /> :
     <LoginApp 
       passwordError = {newUser.passwordError}

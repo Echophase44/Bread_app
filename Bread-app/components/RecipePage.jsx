@@ -47,10 +47,13 @@ function RecipeApp(props){
       ...prevToggles,
       editInstructionsPanel: !prevToggles.editInstructionsPanel
     }))
-    
+
     if(index !== undefined){
       props.setSelectedStep (props.selectedRecipe.steps[index])
+      props.setSelectedStepIndex(index)
     }
+
+
   }
 
   const currentRecipeSteps = props.selectedRecipe?.steps?.map((recipeSteps, index) => (
@@ -68,7 +71,7 @@ function RecipeApp(props){
   // Passed props
   const username = props.user.username
   const selectedRecipeSteps = props.selectedRecipe.steps
-  const {addNewStep, createNewRecipe, generateUsername, settingsPanelToggle, togglePanels, selectedStep, setRecipes} = props
+  const {addNewStep, createNewRecipe, generateUsername, settingsPanelToggle, togglePanels, selectedStep, setRecipes, saveEditStep, selectedStepIndex, setSelectedStepIndex} = props
 
   return(
     <main>
@@ -85,6 +88,9 @@ function RecipeApp(props){
           selectedRecipeSteps = {selectedRecipeSteps}
           selectedStep = {selectedStep}
           setRecipes = {setRecipes}
+          saveEditStep = {saveEditStep}
+          selectedStepIndex = {selectedStepIndex}
+          setSelectedStepIndex = {setSelectedStepIndex}
         />
       }
 
@@ -94,6 +100,7 @@ function RecipeApp(props){
         createNewRecipe = {createNewRecipe}
         username = {username}
         createdRecipes = {createdRecipes}
+        setSelectedStepIndex = {setSelectedStepIndex}
       />
      
      <InstructionSection 
